@@ -1,0 +1,444 @@
+/* Global font override */
+body {
+  font-family: monospace !important;
+}
+
+/* --- Retro background: gold variant to match buttons --- */
+#bg { animation: none !important; }
+
+#bg {
+  background:
+    linear-gradient(
+      180deg,
+      #0b0d10 0%,
+      #14130d 40%,
+      #1b1a11 65%,
+      #231f12 100%
+    );
+}
+
+/* Slightly warmer overlay so white text still pops */
+#overlay { background: rgba(18, 16, 8, 0.38); }
+
+/* Optional: add a gentle gold glow to the buttons on hover so they tie in */
+.uiv-btn:hover .text { text-shadow: 0 0 8px rgba(212, 175, 55, 0.6); }
+
+
+/* --- CTA button row layout --- */
+.cta-buttons {
+  display: flex;
+  gap: 2.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+}
+
+/* --- UIverse cube button (scoped) --- */
+/* From Uiverse.io by gagan-gv, class names adapted */
+.uiv-btn {
+  display: block;
+  padding: 0.7em 1em;
+  background: transparent;
+  outline: none;
+  border: 0;
+  color: #d4af37;                /* gold text */
+  letter-spacing: 0.1em;
+  font-family: monospace;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1;
+  text-decoration: none;         /* make anchor look like a button */
+}
+
+.cube { position: relative; transition: all 0.5s; }
+
+.cube .bg-top {
+  position: absolute; height: 10px; background: #d4af37;
+  bottom: 100%; left: 5px; right: -5px;
+  transform: skew(-45deg, 0); margin: 0; transition: all 0.4s;
+}
+.cube .bg-top .bg-inner { bottom: 0; }
+
+.cube .bg {
+  position: absolute; left: 0; bottom: 0; top: 0; right: 0;
+  background: #d4af37; transition: all 0.4s;
+}
+.cube .bg-right {
+  position: absolute; background: #d4af37; top: -5px; z-index: 0;
+  bottom: 5px; width: 10px; left: 100%;
+  transform: skew(0, -45deg); transition: all 0.4s;
+}
+.cube .bg-right .bg-inner { left: 0; }
+
+.cube .bg-inner {
+  background: #28282d;           /* dark inner */
+  position: absolute; left: 2px; right: 2px; top: 2px; bottom: 2px;
+}
+
+.cube .text { position: relative; transition: all 0.4s; }
+
+.cube:hover .bg-inner { background: #d4af37; transition: all 0.4s; }
+.cube:hover .text { color: #28282d; transition: all 0.4s; }
+.cube:hover .bg-right, .cube:hover .bg, .cube:hover .bg-top { background: #28282d; }
+
+.cube:active { z-index: 9999; animation: bounce 0.1s linear; }
+@keyframes bounce { 50% { transform: scale(0.9); } }
+
+/* Optional tweaks */
+@media (max-width: 480px) { .uiv-btn { font-size: 15px; } }
+
+
+/* --- Make content visible and above overlay (scroll enabled) --- */
+#bg { z-index: 1 !important; }
+#overlay { z-index: 2 !important; }
+
+#main {
+  position: relative !important;
+  transform: none !important;
+  z-index: 3 !important;
+  opacity: 1 !important;        /* <-- make sure it's not transparent */
+}
+
+#header {
+  position: relative;            /* so z-index applies */
+  z-index: 4;                    /* above everything */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* === Convert Aerial from fixed to scroll layout === */
+
+/* Keep background layers fixed */
+#bg { position: fixed; z-index: 1 !important; }
+#overlay { position: fixed; z-index: 2 !important; }
+
+/* Put the content layer above them and back in normal flow */
+#wrapper { position: static !important; height: auto !important; }
+
+#main {
+  position: relative !important;
+  top: auto !important; left: auto !important; right: auto !important; bottom: auto !important;
+  transform: none !important;
+  height: auto !important;
+  z-index: 3 !important;
+  opacity: 1 !important;
+}
+
+/* Make the hero fill the first screen and be visible */
+#header {
+  position: relative !important;           /* so z-index applies */
+  z-index: 4 !important;
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center; flex-direction: column;
+  color: #fff !important;
+}
+#header h1, #header p { color: #fff !important; }
+
+/* Unfix the footer so it follows content (no overlap) */
+#footer {
+  position: relative !important;
+  bottom: auto !important;
+  z-index: 4 !important;
+  margin: 3rem 0 2rem;
+  text-align: center;
+}
+
+/* Smooth anchor scrolling (for later sections) */
+html { scroll-behavior: smooth; }
+
+
+/* perfect centering for hero */
+body { margin: 0; }                    /* just in case */
+#header {
+  width: 100%;
+  text-align: center;
+  padding: 0 1rem;                     /* balance small-screen padding */
+}
+#header h1 { margin: 0 auto 0.5rem; }  /* center block & tighten gap */
+.cta-buttons { justify-content: center; } /* already set, but enforce */
+
+
+/* anchor links under hero */
+
+/*.anchor-nav a { color: #fff; text-decoration: underline; opacity: .9; }
+
+/* sections */
+.section {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 4rem 1.25rem;
+  color: #fff;
+}
+.section h2 {
+  margin: 0 0 1rem;
+  letter-spacing: .5px;
+}
+
+/* glassy card */
+.card {
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(212,175,55,0.28);
+  border-radius: 16px;
+  padding: 1.5rem;
+  backdrop-filter: blur(4px);
+}
+
+/* pill list (skills / coursework) */
+.pills { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .5rem; }
+.pill {
+  padding: .45rem .75rem;
+  border: 1px solid rgba(212,175,55,0.38);
+  border-radius: 999px;
+  font-size: .95rem;
+  letter-spacing: .3px;
+}
+
+/* projects grid */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-top: .5rem;
+}
+.project {
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(212,175,55,0.28);
+  border-radius: 14px;
+  padding: 1rem 1.1rem;
+}
+.project h3 { margin: 0 0 .25rem; }
+.project a { color: #d4af37; text-decoration: underline; }
+
+
+
+/* ---------- UNLOCK SCROLLING (Aerial overrides) ---------- */
+html, body {
+  height: auto !important;          /* don't clamp to 100% viewport */
+  min-height: 100% !important;
+  overflow-y: auto !important;      /* allow vertical scroll */
+  overflow-x: hidden;               /* no horizontal scroll */
+}
+
+/* Some themes set #wrapper to fixed height; let it grow */
+#wrapper {
+  height: auto !important;
+}
+
+/* Keep background layers fixed and full-viewport */
+#bg, #overlay {
+  width: 100%;
+  height: 100%;
+}
+
+
+/* 2-column layout for Skills + Coursework */
+.two-col {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 3rem 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  align-items: start;
+}
+
+/* remove outer section padding when inside grid so the cards align nicely */
+.section--no-pad { padding: 0; }
+
+/* responsive: stack on narrow screens */
+@media (max-width: 900px) {
+  .two-col {
+    grid-template-columns: 1fr;
+    padding: 2rem 1rem;
+  }
+}
+
+/* --- Skills group styling --- */
+.skill-group { 
+  margin-top: 1.25rem; 
+  padding-top: 1rem; 
+  border-top: 1px dashed rgba(212,175,55,0.25);
+}
+
+.skill-group:first-of-type {
+  margin-top: .25rem;
+  padding-top: .5rem;
+  border-top: none;
+}
+
+.skill-title {
+  margin: 0 0 .5rem;
+  font-size: 1.15rem;
+  letter-spacing: .5px;
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+}
+
+/* Make main section titles stand out */
+.section h2 {
+  margin: 0 0 1.5rem;
+  font-size: 1.8rem;      /* bigger font for main headings */
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-align: center;
+  color: #fff;
+}
+
+/* Subheadings (Languages, Frontend, Backend) */
+.skill-title {
+  margin: 0 0 .5rem;
+  font-size: 1.15rem;     /* smaller than main section titles */
+  font-weight: 500;
+  letter-spacing: .5px;
+  display: block;
+}
+
+/* Remove the gold accent line */
+.skill-title::after {
+  display: none;
+}
+
+
+/* Make the canvas fill the fixed background layer */
+#bg { position: fixed; inset: 0; }        /* ensure it’s the fixed layer */
+#gridCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* don't block clicks/scroll */
+}
+
+/* === Anchor nav: zero layout change on hover === */
+
+/* === Anchor nav: no reflow on hover, gold underline === */
+#header .anchor-nav{
+  margin: 2rem auto 0;
+  display: flex;
+  gap: 1.25rem;
+  justify-content: center;
+}
+
+#header .anchor-nav a,
+#header .anchor-nav a:visited,
+#header .anchor-nav a:hover,
+#header .anchor-nav a:focus-visible,
+#header .anchor-nav a:active{
+  /* lock the inline box */
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  /* lock typography */
+  font-size: 1rem !important;
+  font-weight: 400 !important;             /* prevent bold jump */
+  line-height: 1.1rem !important;
+  letter-spacing: 0 !important;
+  font-variation-settings: "wght" 400 !important; /* if font is variable */
+
+  /* lock dimensions */
+  height: 1.4rem !important;
+  min-width: 8ch !important;               /* keeps neighbors from shifting */
+  padding: 0 .25rem !important;
+  margin: 0 !important;
+
+  /* visuals */
+  color: #fff !important;
+  text-decoration: none !important;
+  opacity: .95;
+
+  /* neutralize any theme hover effects */
+  transform: none !important;
+  text-shadow: none !important;
+  border: 0 !important;
+  transition: none !important;
+
+  position: relative !important;           /* for underline */
+}
+
+/* underline drawn outside layout; only this animates */
+#header .anchor-nav a::after{
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  bottom: -3px;
+  height: 2px;
+  background: #d4af37;                     /* gold underline */
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .18s ease;
+  opacity: .95;
+}
+
+#header .anchor-nav a:hover::after,
+#header .anchor-nav a:focus-visible::after{
+  transform: scaleX(1);
+}
+
+/* ---- Sticky, bottom-touching footer ---- */
+#main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;            /* push footer to bottom when content is short */
+}
+
+#footer {
+  margin: 3rem 0 0 !important;  /* remove the 2rem bottom gap */
+  padding: 1rem 0 1.25rem;      /* space around the text instead of line-height */
+  height: auto !important;
+  line-height: normal !important;
+  position: relative !important; /* keep it in normal flow */
+}
+
+/* ===== Projects layout: 2 cards per row on desktop ===== */
+
+/* widen the projects section a bit */
+.section .card {
+  max-width: 1120px;          /* was narrower; gives the grid room */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* grid for projects */
+.projects {
+  display: grid;
+  grid-template-columns: 1fr;  /* 1 per row on phones */
+  gap: 1.75rem;                /* space between cards */
+}
+
+/* two columns on larger screens */
+@media (min-width: 900px) {
+  .projects {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* card polishing so heights feel even and content breathes */
+.projects .project {
+  height: 100%;
+  padding: 1.25rem 1.25rem 1rem;
+  text-align: left;            /* less “column of centered text” look */
+}
+
+.projects .project h3 {
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.projects .project p {
+  margin: 0.4rem 0;
+  line-height: 1.5;
+}
+
+/* keep the GitHub link anchored visually at the end when possible */
+.projects .project p:last-child {
+  margin-top: 0.75rem;
+}
+
+
+

@@ -1,49 +1,273 @@
 <!DOCTYPE HTML>
-<!--
-	Aerial by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
-	<head>
-		<title>Aerial by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
-		<div id="wrapper">
-			<div id="bg"></div>
-			<div id="overlay"></div>
-			<div id="main">
+  <head>
+    <title>Carlos Felipe — Portfolio</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/custom.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+  </head>
+  <body class="is-preload">
+    <div id="wrapper">
+      <div id="bg">
+		<canvas id="gridCanvas" aria-hidden="true"></canvas>
+	  </div>
+      <div id="overlay"></div>
+      <div id="main">
+		
 
-				<!-- Header -->
-					<header id="header">
-						<h1>Adam Jensen</h1>
-						<p>Security Chief &nbsp;&bull;&nbsp; Cyborg &nbsp;&bull;&nbsp; Never asked for this</p>
-						<nav>
-							<ul>
-								<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-								<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-								<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-								<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-							</ul>
-						</nav>
-					</header>
+        <header id="header">
+          <h1>Carlos Felipe</h1>
+          <p>CS Engineering Student • Software Projects • Open to Internships</p>
 
-				<!-- Footer -->
-					<footer id="footer">
-						<span class="copyright">&copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>.</span>
-					</footer>
+          <div class="cta-buttons">
+            <a class="uiv-btn cube cube-hover" href="https://github.com/carlosf02" target="_blank" rel="noopener">
+              <div class="bg-top"><div class="bg-inner"></div></div>
+              <div class="bg-right"><div class="bg-inner"></div></div>
+              <div class="bg"><div class="bg-inner"></div></div>
+              <div class="text">GitHub</div>
+            </a>
+            <a class="uiv-btn cube cube-hover" href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank" rel="noopener">
+              <div class="bg-top"><div class="bg-inner"></div></div>
+              <div class="bg-right"><div class="bg-inner"></div></div>
+              <div class="bg"><div class="bg-inner"></div></div>
+              <div class="text">LinkedIn</div>
+            </a>
+            <a class="uiv-btn cube cube-hover" href="mailto:YOUR_EMAIL@ufl.edu">
+              <div class="bg-top"><div class="bg-inner"></div></div>
+              <div class="bg-right"><div class="bg-inner"></div></div>
+              <div class="bg"><div class="bg-inner"></div></div>
+              <div class="text">Email</div>
+            </a>
+            <a class="uiv-btn cube cube-hover" href="https://drive.google.com/YOUR-RESUME-LINK" target="_blank" rel="noopener">
+              <div class="bg-top"><div class="bg-inner"></div></div>
+              <div class="bg-right"><div class="bg-inner"></div></div>
+              <div class="bg"><div class="bg-inner"></div></div>
+              <div class="text">Résumé</div>
+            </a>
+          </div>
 
-			</div>
-		</div>
-		<script>
-			window.onload = function() { document.body.classList.remove('is-preload'); }
-			window.ontouchmove = function() { return false; }
-			window.onorientationchange = function() { document.body.scrollTop = 0; }
-		</script>
-	</body>
+		  <nav class="anchor-nav">
+			<a href="#skills">Skills</a>
+			<a href="#coursework">Coursework</a>
+			<a href="#projects">Projects</a>
+			</nav>
+
+        </header>
+
+
+<!-- Side-by-side Skills + Coursework -->
+<div class="two-col" id="about">
+  <!-- Skills -->
+<section id="skills" class="section section--no-pad">
+  <div class="card">
+    <h2>Skills</h2>
+
+    <div class="skill-group">
+      <h3 class="skill-title">Languages</h3>
+      <div class="pills">
+        <span class="pill">C++</span>
+        <span class="pill">Python</span>
+        <span class="pill">JavaScript</span>
+        <span class="pill">SQL</span>
+        <span class="pill">HTML/CSS</span>
+        <span class="pill">Spanish (native)</span>
+        <span class="pill">English (fluent)</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3 class="skill-title">Frameworks & Tools</h3>
+      <div class="pills">
+        <span class="pill">Django</span>
+        <span class="pill">React</span>
+        <span class="pill">PostgreSQL</span>
+        <span class="pill">Git & GitHub</span>
+        <span class="pill">VS Code</span>
+        <span class="pill">JetBrains IDEs</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3 class="skill-title">Data & ML</h3>
+      <div class="pills">
+        <span class="pill">Pandas</span>
+        <span class="pill">NumPy</span>
+        <span class="pill">scikit-learn</span>
+        <span class="pill">Matplotlib</span>
+        <span class="pill">Seaborn</span>
+        <span class="pill">Excel</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- Coursework -->
+<section id="coursework" class="section section--no-pad">
+  <div class="card">
+    <h2>Coursework</h2>
+    <div class="pills">
+      <span class="pill">Data Structures</span>
+      <span class="pill">Software Engineering</span>
+      <span class="pill">Database Systems</span>
+      <span class="pill">Data Science</span>
+      <span class="pill">Intro to Machine Learning</span>
+      <span class="pill">Operating Systems</span>
+      <span class="pill">Natural Language Processing</span>
+    </div>
+  </div>
+</section>
+
+</div>
+
+
+<!-- Projects -->
+<section id="projects" class="section">
+  <div class="card">
+    <h2>Projects</h2>
+    <div class="projects">
+      <article class="project">
+        <h3>Bulldozer Price Regression</h3>
+        <p>End-to-end ML pipeline on 401K+ Blue Book auction records. Cleaned data, engineered features, and compared Linear/KNN/Decision Tree/Random Forest; best model achieved R² = 0.91 with GridSearchCV tuning.</p>
+        <p><a href="https://github.com/carlosf02" target="_blank" rel="noopener">GitHub profile</a></p>
+      </article>
+
+      <article class="project">
+        <h3>EventSync</h3>
+        <p>Full-stack event platform built with Django, PostgreSQL, and Tailwind. Users can create, browse, and purchase event access; includes secure auth, scalable DB (≈1,000 events/users), real-time chat, and Stripe payments.</p>
+        <p><a href="https://github.com/jesus-g20/EventSync" target="_blank" rel="noopener">GitHub</a></p>
+      </article>
+
+      <article class="project">
+        <h3>Customer Segmentation in Retail</h3>
+        <p>Predicted purchase likelihood on the Online Retail dataset. Engineered recency, transaction count, and revenue features; evaluated Logistic Regression vs. Random Forest (balanced data ~50% accuracy). Delivered targeted promo insights.</p>
+        <p><a href="https://github.com/carlosf02" target="_blank" rel="noopener">GitHub profile</a></p>
+      </article>
+
+      <article class="project">
+        <h3>Fast-Track</h3>
+        <p>Route-optimization web app with Dijkstra’s algorithm and a custom MinHeap from scratch; visualizes and compares Dijkstra vs. A* on a weighted U.S. cities graph.</p>
+        <p><a href="https://github.com/Chuporceeta/Fast-Track" target="_blank" rel="noopener">GitHub</a></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+
+        <footer id="footer">
+          <span class="copyright">&copy; 2025 Carlos Felipe</span>
+        </footer>
+
+      </div>
+    </div>
+    <script>
+      window.onload = function() { document.body.classList.remove('is-preload'); }
+      //window.ontouchmove = function() { return false; }
+      window.onorientationchange = function() { document.body.scrollTop = 0; }
+    </script>
+	<script>
+(function () {
+  const canvas = document.getElementById('gridCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  // Settings
+  const SPACING = 40;
+  const VERT_ALPHA = 0.18;
+  const HORIZ_ALPHA = 0.14;
+  const LINE_WIDTH = 1;
+  const PERIOD = 120;      // wave length (px)
+  const MAX_AMP = 50;      // max curve amplitude (px)
+
+  let dpr = Math.max(1, window.devicePixelRatio || 1);
+  let needsRedraw = true;
+
+  function sizeToCanvas(el, c) {
+    const { width, height } = el.getBoundingClientRect();
+    c.width = Math.round(width * dpr);
+    c.height = Math.round(height * dpr);
+    c.style.width = width + 'px';
+    c.style.height = height + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function progress() {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    if (max <= 0) return 0;
+    return Math.min(1, Math.max(0, window.scrollY / max));
+  }
+
+  function draw() {
+    needsRedraw = false;
+    const { width, height } = canvas.getBoundingClientRect();
+    ctx.clearRect(0, 0, width, height);
+
+    // compute scroll-driven curve first (used by both directions)
+    const p = progress();
+    const amp = MAX_AMP * p;
+    const phase = p * Math.PI * 2 * 0.5;
+
+    const vertColor  = `rgba(212,175,55,${VERT_ALPHA})`;
+    const horizColor = `rgba(212,175,55,${HORIZ_ALPHA})`;
+    ctx.lineWidth = LINE_WIDTH;
+
+    // --- Vertical lines (curved) ---
+    ctx.strokeStyle = vertColor;
+    const vStep = 8; // smoothness of curve
+    for (let x = 0; x <= width + SPACING; x += SPACING) {
+      ctx.beginPath();
+      const x0 = x + amp * Math.cos(phase);
+      ctx.moveTo(x0, 0);
+      for (let y = vStep; y <= height; y += vStep) {
+        const xx = x + amp * Math.cos(y / PERIOD + phase);
+        ctx.lineTo(xx, y);
+      }
+      ctx.stroke();
+    }
+
+    // --- Horizontal lines (curved) ---
+    ctx.strokeStyle = horizColor;
+    const hStep = 8;
+    for (let y = 0; y <= height + SPACING; y += SPACING) {
+      ctx.beginPath();
+      const y0 = y + amp * Math.sin(phase);
+      ctx.moveTo(0, y0);
+      for (let x = hStep; x <= width; x += hStep) {
+        const yy = y + amp * Math.sin(x / PERIOD + phase);
+        ctx.lineTo(x, yy);
+      }
+      ctx.stroke();
+    }
+  }
+
+  function onResize() {
+    sizeToCanvas(document.getElementById('bg'), canvas);
+    needsRedraw = true;
+    draw();
+  }
+
+  function onScroll() {
+    if (needsRedraw) return;
+    needsRedraw = true;
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', onResize, { passive: true });
+  window.addEventListener('orientationchange', onResize, { passive: true });
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  onResize();
+})();
+</script>
+
+
+  </body>
 </html>
