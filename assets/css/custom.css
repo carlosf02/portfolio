@@ -493,3 +493,23 @@ html, body {
   font-weight: 700 !important;
   letter-spacing: 0.3px;
 }
+
+/* ===== Kill the template's intro fade/delay ===== */
+#wrapper {
+  animation: none !important;   /* stop the 3s fade */
+  opacity: 1 !important;        /* show immediately */
+}
+
+#header {
+  animation: none !important;   /* stop the delayed fade */
+  opacity: 1 !important;
+  top: 0 !important;            /* cancel the slight upward offset */
+  transform: none !important;
+}
+
+/* If the template tries to fade-in header nav/items, force them visible */
+#header nav li,
+#header nav a {
+  animation: none !important;
+  opacity: 1 !important;
+}
