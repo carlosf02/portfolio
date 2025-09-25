@@ -513,3 +513,8 @@ html, body {
   animation: none !important;
   opacity: 1 !important;
 }
+
+/* Hide scrollbar (WebKit) */
+html::-webkit-scrollbar { width: 0; height: 0; }
+/* Hide scrollbar (Firefox) */
+* { scrollbar-width: none; }
