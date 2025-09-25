@@ -440,5 +440,56 @@ html, body {
   margin-top: 0.75rem;
 }
 
+/* Project link row spacing (keep if you don't already have it) */
+.projects .project .links { margin-top: 0.75rem; font-weight: 500; }
+.projects .project .links .sep { margin: 0 .5rem; opacity: .6; }
+
+/* --- Clean underline style for project links only --- */
+.projects .project .links a {
+  /* kill the theme's dotted border "underline" */
+  border-bottom: none !important;
+
+  /* real underline */
+  text-decoration: underline;
+  text-underline-offset: 3px;         /* a little breathing room */
+  text-decoration-thickness: 2px;     /* solid, easy to read */
+}
+
+.projects .project .links a:hover,
+.projects .project .links a:focus {
+  text-decoration: none;              /* hide underline on hover/focus */
+}
+
+/* Project links: underline only on hover/focus */
+.projects .project .links a,
+.projects .project p > a {
+  /* neutralize theme underline styles */
+  border: 0 !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  text-decoration: none;              /* no underline by default */
+  display: inline !important;         /* keep underline width = text width */
+  padding: 0 !important;
+}
+
+.projects .project .links a:hover,
+.projects .project p > a:hover,
+.projects .project .links a:focus-visible,
+.projects .project p > a:focus-visible {
+  text-decoration: underline;         /* show on hover/focus */
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+}
+
+/* if any theme draws a fake underline */
+.projects .project .links a::after,
+.projects .project p > a::after {
+  content: none !important;
+}
 
 
+
+.projects .project h3 {
+  font-weight: 700 !important;
+  letter-spacing: 0.3px;
+}
